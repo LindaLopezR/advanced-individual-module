@@ -1,0 +1,43 @@
+<template name="delete">
+   <div class="container">
+      <div class="ui active dimmer" id="loadingGemba">
+         <div class="ui text loader">{{_ "loading"}}</div>
+      </div>
+      <div class="row">
+         <div class="col-md-3"></div>
+         <div class="col-md-4">
+            <form class="ui tiny form">
+               <p class="titulo">{{_ "password"}}</p>
+               <input type="password" name="password" id="password" placeholder="{{_ 'password'}}" class="mrg-btn inputDelete">
+            </form>
+
+            <p class="titulo">{{_ "gemba_walks"}}</p>
+
+            <div class="ui action input mini mrg-btn2">
+               <select class="ui selection dropdown" id="selectGembas">
+                  {{_ "gemba_walks"}}
+                  {{#each getAllGembas}}
+                     <option value="{{_id}}">{{name}}</option>
+                  {{/each}}
+               </select>
+               <div type="submit" class="ui button small red" id="deleteGembas">{{_ "delete"}}</div>
+            </div>
+
+            <p class="titulo">{{_ "locations"}}</p>
+
+            <div class="ui action input  mini mrg-btn2">
+               <select class="ui selection dropdown" id="selectLocation">
+                  {{_ "locations"}}
+                  {{#each getAllLocations}}
+                     <option value="{{_id}}">{{name}}</option>
+                  {{/each}}
+               </select>
+               <div type="submit" class="ui button small red" id="deleteLocation">{{_ "delete"}}</div>
+            </div>
+            
+         </div>
+         <div class="col-md-5"></div>
+      </div>
+   </div>
+
+</template>

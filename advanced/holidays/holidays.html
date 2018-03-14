@@ -1,0 +1,96 @@
+<template name="holidays">
+
+   <div class="container">
+      <div class="ui active dimmer" id="loadingGemba">
+         <div class="ui text loader">{{_ "loading"}}</div>
+      </div>
+
+      <div class="row">
+         <div class="col-md-6">
+            <p class="titulo">{{_ "create_holiday"}}</p>
+            <hr class="linea-azul-company">
+            <form class="ui tiny form" id="formNewHoliday">
+               <div class="row">
+
+                  <div class="col-md-6">
+                     <div class="field">
+                        <label>{{_ "new_holiday"}}</label>
+                        <div class="fields">
+                           <div class="sixteen wide field">
+                              <input class="inputHoliday" type="text" name="name" placeholder="{{_'name'}}">
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+
+                  <div class="col-md-6">
+                     <br>
+                     <div class="ui checkbox">
+                        <input type="checkbox" id="cbPeriod">
+                        <label>{{_ "period"}}</label>
+                     </div>
+                  </div>
+               </div>
+
+               <div class="col-md-12 mrg-btn">
+                  <div class="row">
+                     <div class="col-md-6">
+                        <p><strong>
+                           {{#if isPeriod}}
+                              {{_ "from"}}
+                           {{/if}}
+                           <div style="display: flex;">
+                              <div syle="flex: 0 1 auto;">
+                                 <input type="text" id="pickerHoliday" name="startsOn" readonly >
+                              </div>
+                           </div>
+                        </strong></p>
+                     </div>
+                     <div class="col-md-6">
+                        <p><strong>
+                           {{#if isPeriod}}
+                              {{_ "to"}}
+                           {{/if}}
+                           <div style="display: flex;">
+                              <div syle=" flex: 0 1 auto;" id="wrapperFinish">
+                              <input type="text" id="pickerHolidayFinish" name="finishOn" readonly disabled>
+                              </div>
+                           </div>
+                        </strong></p>
+                     </div>
+                  </div>     
+               </div>
+
+               <button class="ui button teal btnSaveHoliday" type="submit">{{_ "save"}}</button>
+               <div class="ui error message errorCompany"></div>     
+            </form>
+
+         </div>
+
+         <div class="col-md-6">
+            <div class="row boxCompany">
+               {{# if showPlaceholder}}
+                  {{#each holidays}}
+                  <p>
+                     <button class="fluid ui right labeled icon button btnDeleteHoliday" data-id="{{_id}}">
+                        <i class="remove icon"></i>
+                        {{name}},&nbsp;{{from.textDate}}
+                        {{#if period}}
+                           -{{to.textDate}}
+                        {{/if}}
+                     </button>
+                  </p>
+                  {{/each}}
+
+               {{else}}
+
+                  {{> noHolidays}}
+
+               {{/if}}
+            </div>
+         </div>
+
+      </div>
+   </div>
+
+</template>

@@ -1,0 +1,21 @@
+<template name="advanced">
+   <div class="container">
+      <h2><i class="cogs icon"></i> {{_ "advanced"}}</h2>
+      <div class="row">
+         <div class="col-md-12">
+
+            <ul class="nav nav-tabs nav-justified">
+               <li role="presentation" class="active" id="tabHolidays"><a href="#" aria-controls="holidays" role="tab" data-toggle="tab" class="{{isTabActive 4}} item">{{_ "holidays"}}</a></li>
+               <li role="presentation" id="tabManage"><a href="#" aria-controls="manage_data" role="tab" data-toggle="tab" class="{{isTabActive 7}} item">{{_ "manage_data"}}</a></li>
+               <li role="presentation" id="tabLog"><a href="#" aria-controls="actions_log" role="tab" data-toggle="tab" class="{{isTabActive 8}} item">{{_ "actions_log"}}</a></li>
+               <li role="presentation" id="tabAbout"><a href="#" aria-controls="about" role="tab" data-toggle="tab" class="{{isTabActive 9}} item">{{_ "about"}}</a></li>
+            </ul>
+
+            <div class="ui bottom attached active tab segment sectionCompany">
+               {{> Template.dynamic template=getTabContent data=getData }}
+            </div>
+         </div>
+      </div>
+   </div>
+
+</template>
