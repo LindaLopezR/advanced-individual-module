@@ -9,7 +9,7 @@ import './about/about.js';
 import './advanced.html';
 
 Template.advanced.rendered = function(){
-	Session.set('ACTIVE_TAB', 1);
+	Session.set('ACTIVE_TAB', 4);
 };
 
 Template.advanced.events({
@@ -49,12 +49,12 @@ Template.advanced.events({
 Template.advanced.helpers({
 
 	isTabActive(tab) {
-		let active = Session.get('ACTIVE_TAB') || 1;
+		let active = Session.get('ACTIVE_TAB') || 4;
 		return active == tab?'active':'';
 	},
 
 	getTabContent(tab) {
-		let active = Session.get('ACTIVE_TAB') || 1;
+		let active = Session.get('ACTIVE_TAB') || 4;
 
 		switch (active) {
 			case 4:
