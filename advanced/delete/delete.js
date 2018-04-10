@@ -10,17 +10,17 @@ Template.delete.rendered = function(){
 
   $('#loadingGemba').hide();
   //$('select').dropdown();
-  
+
 };
 
 Template.delete.helpers({
 
   getAllGembas() {
-    return Gembas.find();
+    return Gembas.find({enable:false});
   },
 
   getAllLocations() {
-    return Locations.find();
+    return Locations.find({enable:false});
   }
 
 });
@@ -52,7 +52,7 @@ Template.delete.events({
     $('#modalOptions').modal({
       closable  : false,
       onDeny() {
-        
+
       },
       onApprove() {
 
@@ -98,7 +98,7 @@ Template.delete.events({
     $('#modalOptions').modal({
       closable  : false,
       onDeny() {
-        
+
       },
       onApprove() {
 
